@@ -23,19 +23,14 @@ const getOperation = (operator) => {
     switch(operator){
         case '+':
             return (left, right) => Number(left) + Number(right); //prevent concat by forcing left,right to be numbers
-            break;
         case '-':
             return (left, right) => left - right;
-            break;
         case '*':
             return (left, right) => left * right;
-            break;
         case '/':
             return (left, right) => left / right;
-            break;
         case '^':
             return (left, right) => left ** right;
-            break;
     }
 }
 const evaluate = (expression) =>

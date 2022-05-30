@@ -29,8 +29,9 @@ const decorate = (string, decorator) => decorator(string); //first step; create 
 // /g ensures we match all parts of the string, not just the first occurance
 const expression1 = decorate("supercalifragilisticexpialidocious",
     (string) => string.split(/(?=c)/g));
-const expression2 = decorate("supercalifragilisticexpialidocious",
-    (string) => {
+
+//second expression which constructs an object as specified in problem 3
+const expression2 = decorate("supercalifragilisticexpialidocious",(string) => {
     let modifiedString = string.replaceAll('a','A');
         return {
             originalString: string,
@@ -39,5 +40,6 @@ const expression2 = decorate("supercalifragilisticexpialidocious",
             length: modifiedString.length
         }
     });
+
 console.log(expression1);
 console.table(expression2);
