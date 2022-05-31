@@ -19,8 +19,8 @@ always the same length). Write a helper function to parse the expression that us
 destructuring to assign values to left and right.
  */
 
-const getOperation = (operator) => {
-    switch(operator){
+const getOperation = (op) => {
+    switch(op){
         case '+':
             return (left, right) => Number(left) + Number(right); //prevent concat by forcing left,right to be numbers
         case '-':
@@ -34,8 +34,8 @@ const getOperation = (operator) => {
     }
 }
 const evaluate = (expression) =>
-    ([left, operator, right] = expression) => //destructure operation into left, operator, right
-        getOperation(operator).apply(this, [left,right]); //apply returned function on inputs
+    ([left, op, right] = expression) => //destructure operation into left, operator, right
+        getOperation(op).apply(this, [left,right]); //apply returned function on inputs
 
 const expression = '8+3';
 let operator = evaluate(expression);
