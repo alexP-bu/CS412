@@ -18,7 +18,7 @@ and the overall length of the modified string:
 	 	 originalString: xxx,
 	 	 modifiedString: xxx,
 	 	 numberReplaced: xxx,
-	 	 length:		 	 xxx,
+	 	 length:		 xxx,
 }
 Print the data from the returned object on the console (console.table would be good for this).
  */
