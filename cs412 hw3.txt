@@ -1,0 +1,45 @@
+CS412 PS3: Mongo Puzzles (Labeled PS5)
+
+P1. Select all of the restaurants in Manhattan.
+
+db.restaurants.find({borough: "Manhattan"})
+
+P2. Select all of the restaurants in Manhattan, but only display the name of the
+restaurant and its type of cuisine.
+
+db.restaurants.find({borough: "Manhattan"}, {name: 1, cuisine: 1, _id: 0})
+
+P3. Select all of the restaurants in Manhattan with a sanitation grade of ‘A’
+
+db.restaurants.find({"grades.score": {$exists: "A"}})
+
+P4. Find the number of restaurants (just the number) in the database that are
+located in Manhattan.
+
+db.restaurants.find({borough: "Manhattan"}).count()
+
+P5. Find the number of restaurants (just the number) in the database that are
+located either in Manhattan or in Queens.
+
+db.restaurants.find({ $or: [ {borough: "Manhattan"}, {borough: "Queens"} ] }).count()
+
+P6. Update the Lexler Deli and change its address to 111 Short Street in Bronx.
+You can leave the zip code and lat/long coordinates alone.
+
+db.restaurants.update({name: "Lexler Deli"}, { $set : {borough: "Bronx", address: { building: "111", street: "Short Street", coord: "[ -73.97534999999999, 40.7516269 ]", zipcode: "10174"} } })
+
+P7. Insert a new restaurant with the following data:
+Name: Maggie’s Hideaway
+Address: 1234 Commonwealth Ave, Boston MA 02215
+Cuisine: Comfort
+
+db.restaurants.insert({name: "Maggie's Hideaway", address: {building: "1234", street: "Commonwealth Ave", zipcode: "02215"}, city: "Boston", state: "MA", cuisine: "comfort" })
+
+P8: Find all restaurants on Wall Street; sort them by score.
+
+db.restaurants.find({"address.street": "Wall Street"}).sort({"grades.score" : $all})
+
+P9.
+db.restaurants.find({"address.street": "Wall Street"}, {_id : 0, name : 1, score : 1}).sort({"grades.score" : $all})
+
+
