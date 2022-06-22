@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from "@angular/core";
+import { Dog } from "../config/dog"
+
 
 @Component({
   selector: 'app-form-results',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormResultsComponent implements OnInit {
 
-  constructor() { }
+  @Input() dogsDisplayed: Dog[];
+
+  constructor() {
+    this.dogsDisplayed = [];
+  }
 
   ngOnInit(): void {
+
   }
 
 }

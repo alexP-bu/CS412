@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
+import {SearchByBreedService} from "../services/search-by-breed.service";
 
 @Component({
   selector: 'app-dog-search-form',
@@ -8,16 +9,18 @@ import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms"
 })
 export class DogSearchFormComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private searchService: SearchByBreedService) { }
 
   dogForm = this.formBuilder.group({
     breedSearchQuery: ['', [Validators.required, Validators.minLength(2)]]
   });
 
   ngOnInit(): void {
+
   }
 
   onSubmit(): void {
 
   }
+
 }

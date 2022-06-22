@@ -1,1 +1,17 @@
-<p>form-results works!</p>
+<p>Dogs Returned:</p>
+<div *ngIf="dogsDisplayed.length > 0; then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
+  <ul>
+    <li *ngFor="let dog of dogsDisplayed">
+      <ul>
+        <li>{{dog.name}}</li>
+        <li>{{dog.temperament}}</li>
+        <li>{{dog.weight}}</li>
+        <li>{{dog.reference_image_id}}</li>
+      </ul>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #elseBlock>No dogs returned.</ng-template>
