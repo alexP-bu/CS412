@@ -6,4 +6,9 @@ export class Weight{
     this.imperial = imperial;
     this.metric = metric;
   }
+  /*
+  public toString(): string {
+    //can do by location
+  }
+   */
 }

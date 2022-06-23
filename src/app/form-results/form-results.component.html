@@ -1,17 +1,17 @@
 <p>Dogs Returned:</p>
-<div *ngIf="dogsDisplayed.length > 0; then thenBlock else elseBlock"></div>
+<div *ngIf="dogsDisplayed.size > 0 then thenBlock else elseBlock"></div>
 
 <ng-template #thenBlock>
   <ul>
-    <li *ngFor="let dog of dogsDisplayed">
+    <li class="dog-list-item" *ngFor="let dog of dogsDisplayed">
       <ul>
-        <li>{{dog.name}}</li>
-        <li>{{dog.temperament}}</li>
-        <li>{{dog.weight}}</li>
-        <li>{{dog.reference_image_id}}</li>
+        <li class="dog-attribute">{{dog.name}}</li>
+        <li class="dog-attribute">{{dog.temperament}}</li>
+        <li class="dog-attribute">{{dog.weight.imperial}}</li>
+        <li class="dog-attribute">{{dog.reference_image_id}}</li>
       </ul>
     </li>
   </ul>
 </ng-template>
 
-<ng-template #elseBlock>No dogs returned.</ng-template>
+<ng-template #elseBlock>No dogs returned yet.</ng-template>

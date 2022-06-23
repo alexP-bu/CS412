@@ -8,10 +8,10 @@ import { HttpClient } from "@angular/common/http";
 })
 export class SearchByBreedService {
 
-  private nodeEndpoint = 'http://localhost:3000/api/';
+  private nodeEndpoint = 'http://localhost:3000/dogs';
 
   public getDogs(query: string): Observable<Dog[]> {
-    return this.httpClient.get<Dog[]>(this.nodeEndpoint + '?' + `search=${query}`);
+    return this.httpClient.get<Dog[]>(this.nodeEndpoint + '?' + "search=" + query);
   }
 
   constructor(private httpClient: HttpClient) { }

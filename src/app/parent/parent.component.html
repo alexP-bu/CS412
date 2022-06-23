@@ -1,7 +1,6 @@
 <div>
-  <h2>Hello! I'm the parent component.</h2>
-  <app-dog-search-form></app-dog-search-form>
-  <p>Results from API:</p>
+  <h2 class="page-title">Dog - Fact - O - Matic</h2>
+  <app-dog-search-form (newDogEvent)="addDogs($event)"></app-dog-search-form>
   <app-form-results [dogsDisplayed]="dogsReturned"></app-form-results>
 </div>
 

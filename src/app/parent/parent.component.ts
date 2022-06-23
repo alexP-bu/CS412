@@ -8,14 +8,17 @@ import { Dog } from "../config/dog";
 })
 export class ParentComponent implements OnInit {
 
-  dogsReturned: Dog[];
+  dogsReturned: Set<Dog>;
 
   constructor() {
-    this.dogsReturned = [];
+    this.dogsReturned = new Set<Dog>();
   }
 
   ngOnInit(): void {
 
   }
 
+  addDogs($event: Dog[]) {
+    $event.forEach( dog => this.dogsReturned.add(dog))
+  }
 }

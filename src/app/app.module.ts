@@ -6,6 +6,7 @@ import { DogSearchFormComponent } from './dog-search-form/dog-search-form.compon
 import {ReactiveFormsModule} from "@angular/forms";
 import { FormResultsComponent } from './form-results/form-results.component';
 import { ParentComponent } from './parent/parent.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ParentComponent } from './parent/parent.component';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
