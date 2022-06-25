@@ -1,17 +1,22 @@
-<p>Dogs Returned:</p>
-<div *ngIf="dogsDisplayed.size > 0 then thenBlock else elseBlock"></div>
+<div *ngIf="dogsDisplayed.size > 0 then displayDogs else noDogs"></div>
 
-<ng-template #thenBlock>
-  <ul>
+<ng-template #displayDogs>
+  <ul class="all-dogs-list">
     <li class="dog-list-item" *ngFor="let dog of dogsDisplayed">
-      <ul>
-        <li class="dog-attribute">{{dog.name}}</li>
+      <ul class="dog-attr-list">
+        <div class="center-image">
+          <img *ngIf="dog.imageURL != null" src="{{dog.imageURL}}" class="dog-img">
+          <p class="dog-attribute">{{dog.name}}</p>
+        </div>
         <li class="dog-attribute">{{dog.temperament}}</li>
-        <li class="dog-attribute">{{dog.height.imperial}}</li>
-        <li class="dog-attribute">{{dog.weight.imperial}}</li>
+        <li class="dog-attribute">Average Height: {{dog.height.imperial}} inches</li>
+        <li class="dog-attribute">Average Weight: {{dog.weight.imperial}} lbs</li>
       </ul>
+      <hr>
     </li>
   </ul>
 </ng-template>
 
-<ng-template #elseBlock>No dogs returned yet.</ng-template>
+<ng-template #noDogs>
+  <p class="no-dogs-text">No dogs returned yet.</p>
+</ng-template>

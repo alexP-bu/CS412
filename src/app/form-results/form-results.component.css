@@ -1,7 +1,46 @@
 .dog-attribute {
   margin-top: 2px;
+  list-style-type: none;
+}
+
+.dog-img {
+  max-height: 150px;
+  max-width: 150px;
+}
+
+.all-dogs-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 
 .dog-list-item {
-  margin-top: 10px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-image {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dog-attr-list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.no-dogs-text {
+  text-align: center;
+  margin-top: 20px;
 }

@@ -9,11 +9,12 @@ export class Dog {
   name: string;
   reference_image_id: string;
   temperament: string;
+  imageURL: string;
   weight: Weight;
   height: Height;
 
 
-  constructor(id: number, life_span: string, name: string, ref: string, temp: string, weight: Weight, height: Height) {
+  constructor(id: number, life_span: string, name: string, ref: string, temp: string, weight: Weight, height: Height, imageURL: string) {
     this.id = id;
     this.life_span = life_span;
     this.name = name;
@@ -21,5 +22,6 @@ export class Dog {
     this.temperament = temp;
     this.weight = weight;
     this.height = height;
+    this.imageURL = imageURL;
   }
 }
