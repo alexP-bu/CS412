@@ -1,7 +1,5 @@
 import {Weight} from "./weight";
-import {isDefaultLibrary} from "@angular/compiler-cli/ngcc/src/packages/source_file_cache";
 import {Height} from "./height";
-
 
 export class Dog {
   id: number;
