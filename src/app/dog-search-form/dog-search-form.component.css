@@ -1,4 +1,23 @@
 .submitButton {
   margin-left: 10px;
+  border: 1px solid black;
+  background: none;
+  font-weight: bold;
+  color: black;
+  padding: 7px;
 }
+
+.dog-form {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.input-field {
+  padding: 7px;
+}
+
+.submitButton:hover {
+  background: lightgray;
+}
+
 

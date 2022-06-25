@@ -5,7 +5,10 @@
     <li class="dog-list-item" *ngFor="let dog of dogsDisplayed">
       <ul class="dog-attr-list">
         <div class="center-image">
-          <img *ngIf="dog.imageURL != null" src="{{dog.imageURL}}" class="dog-img" alt="{{dog.name}}">
+          <img *ngIf="dog.imageURL != null; else noImage" src="{{dog.imageURL}}" class="dog-img" alt="{{dog.name}}">
+          <ng-template #noImage>
+            <h4 class="no-image">No Image Available For This Dog</h4>
+          </ng-template>
           <p class="dog-attribute">{{dog.name}}</p>
         </div>
         <li class="dog-attribute">{{dog.temperament}}</li>

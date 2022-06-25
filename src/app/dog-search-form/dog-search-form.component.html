@@ -1,7 +1,7 @@
-<form [formGroup]="dogForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="dogForm" (ngSubmit)="onSubmit()" class="dog-form">
 
   <label for="breed">Enter your dog's breed: </label>
-  <input type="text" id="breed" formControlName="breedSearchQuery">
+  <input type="text" id="breed" formControlName="breedSearchQuery" class="input-field">
   <button type="submit" class="submitButton" [disabled]="!dogForm.valid">Search!</button>
 
 </form>

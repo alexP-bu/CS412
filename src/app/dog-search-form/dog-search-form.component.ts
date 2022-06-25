@@ -1,9 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Validators, FormBuilder } from "@angular/forms";
 import {SearchByBreedService} from "../services/search-by-breed.service";
 import { Dog } from "../config/dog";
-import {Weight} from "../config/weight";
-import {of} from "rxjs";
 
 @Component({
   selector: 'app-dog-search-form',
