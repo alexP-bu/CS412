@@ -24,7 +24,7 @@ export class DogSearchFormComponent implements OnInit {
     this.searchService.getDogs(query).subscribe({
         next: res => this.newDogEvent.emit(res),
         //error: err => console.log(err.status, err.statusText) //use this when using with server
-        error: err => console.log('Error getting data from API: ' + err) //for debugging
+        error: err => console.log('Error getting data from API: ', err) //for debugging
       }
     );
   }
