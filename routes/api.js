@@ -4,31 +4,34 @@ const axios = require('axios');
 const API = require('../config/dogAPI');
 
 /* GET users listing. */
-router.get('/dogs/', function(req, res, next) {
-    //get dog data
-    let getDogs = searchDog(req.query.search).then(response => {
-        return response.data;
-    });
-    //resolve dogs and then append images
-    getDogs.then( dogsReturned => {
-        dogsReturned.forEach( dog => console.log(dog.data));
-    });
+router.get('/dogs/', function(req, res) {
+     //get dog search data
+     searchDogs(req.query.search)
+         .then( async response => {
+            //for each dog, if it has a image reference id, map the url to the dog
+            let dogs = await response.data
+                .map( async (dog) => {
+                    (dog.reference_image_id != undefined) ? dog.imageURL = await getImageURL(dog.reference_image_id) : dog.imageURL = null;
+                return dog
+            });
+
+        Promise.all(dogs).then(result => res.send(result));
+     });
 });
 
-const getImage = async (id) => {
-    const response = await axios.get('https://api.thedogapi.com/v1/images/' + id, { params: { x_api_key: API.key }})
+const getImageURL = async (id) => {
+    let response = await axios.get('https://api.thedogapi.com/v1/images/' + id, { params: { x_api_key: API.key }})
         .catch(err => {
             console.log(err);
         });
-    return response;
+    return response.data.url;
 }
 
-const searchDog = async (query) => {
-    const response = await axios.get(API.url, { params: { q: query, x_api_key: API.key }})
+const searchDogs = async (query) => {
+    return await axios.get(API.url, { params: { q: query, x_api_key: API.key }})
         .catch(error => {
             console.error(error);
         });
-    return response;
 }
 
 module.exports = router;
