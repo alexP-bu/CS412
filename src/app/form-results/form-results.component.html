@@ -1,4 +1,4 @@
-<div *ngIf="dogsDisplayed.size > 0 then displayDogs else noDogs"></div>
+<div *ngIf="dogsDisplayed.length > 0 then displayDogs else noDogs"></div>
 
 <ng-template #displayDogs>
   <ul class="all-dogs-list">

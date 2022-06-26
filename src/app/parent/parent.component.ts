@@ -8,10 +8,12 @@ import { Dog } from "../config/dog";
 })
 export class ParentComponent implements OnInit {
 
-  dogsReturned: Set<Dog>;
+  dogsReturned: Set<string>;
+  dogsToDisplay: Dog[];
 
   constructor() {
-    this.dogsReturned = new Set<Dog>();
+    this.dogsReturned = new Set<string>();
+    this.dogsToDisplay = [];
   }
 
   ngOnInit(): void {
@@ -19,6 +21,11 @@ export class ParentComponent implements OnInit {
   }
 
   addDogs($event: Dog[]) {
-    $event.forEach( dog => this.dogsReturned.add(dog))
+    $event.filter( dog => !this.dogsReturned.has(dog.name))
+      .forEach( dog => {
+        this.dogsReturned.add(dog.name);
+        this.dogsToDisplay.push(dog);
+        }
+      )
   }
 }

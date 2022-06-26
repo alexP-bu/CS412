@@ -10,10 +10,10 @@ import { Dog } from "../config/dog"
 })
 export class FormResultsComponent implements OnInit {
 
-  @Input() dogsDisplayed: Set<Dog>;
+  @Input() dogsDisplayed: Dog[];
 
   constructor() {
-    this.dogsDisplayed = new Set<Dog>;
+    this.dogsDisplayed = [];
   }
 
   ngOnInit(): void {
