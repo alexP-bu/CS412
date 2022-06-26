@@ -8,11 +8,13 @@ router.get('/dogs/', function(req, res) {
      //get dog search data
      searchDogs(req.query.search)
          .then( async response => {
-            //for each dog, if it has a image reference id, map the url to the dog
+            //for each dog, if it has an image reference id, map the url to the dog
             let dogs = await response.data
                 .map( async (dog) => {
-                    (dog.reference_image_id != undefined) ? dog.imageURL = await getImageURL(dog.reference_image_id) : dog.imageURL = null;
-                return dog
+                    if (dog.reference_image_id != null){
+                        dog.imageURL = await getImageURL(dog.reference_image_id);
+                    }
+                return dog;
             });
 
         Promise.all(dogs).then(result => res.send(result));
