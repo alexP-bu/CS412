@@ -1,4 +1,4 @@
-# PS4
+# Alex's PS4 Application - Dog Fact - O - Matic (make sure to run the server project on port 3000)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
 
